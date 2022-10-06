@@ -1,9 +1,14 @@
+import Square from "../Square/Square";
+
 const Board = ({squares}) => {
     
     /*Función que recibe un conjunto de valores, y mapea cada valor a un elemento HTML*/
     const createSquares = values => (
         values.map( value => (
-            <div>{value}</div>
+            <Square 
+                value={squares[value]}
+                key={`square_${value}`}
+            />
         ))
     );
 
