@@ -1,12 +1,13 @@
 import Square from "../Square/Square";
 import "../Board/Board.css"
 
-const Board = ({squares, onClick, turn}) => {
+const Board = ({squares, onClick, turn, winningSquares}) => {
     
     /*Función que recibe un conjunto de valores, y mapea cada valor a un elemento HTML*/
     const createSquares = values => (
         values.map( value => (
             <Square
+                winner={winningSquares.includes(value)}
                 turn={turn}
                 onClick={() => onClick(value)} 
                 value={squares[value]}
