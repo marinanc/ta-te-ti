@@ -33,6 +33,13 @@ const App = () => {
     O: 0,
   });
 
+  /*Resetear la partida al terminar*/
+  const reset = () => {
+    setTurn('X');
+    setSquares(Array(9).fill(null));
+    setWinningSquares([])
+  }
+
   /*Verificar si hay un ganador*/
   const checkForWinner = newSquares => {
     for(let i=0; i<winningPositions.length; i++){
@@ -70,9 +77,10 @@ const App = () => {
         [result]: score[result] + 1
       });
     }
-
     setWinningSquares(winningPositions);
 
+    /*Esperar 2 segundos para resetear la partida*/
+    setTimeout(reset, 2000);
   }
 
   return (
