@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Board from './components/Board/Board';
+import ScoreBoard from './components/ScoreBoard/ScoreBoard';
 
 /*Todas las posibles combinaciones para ganar*/
 const winningPositions = [
@@ -86,6 +87,7 @@ const App = () => {
   return (
     <div className="container">
       <Board winningSquares={winningSquares} turn={turn} squares={squares} onClick={handleClick}/>
+      <ScoreBoard scoreO={score.O} scoreX={score.X} />
     </div>
   );
 }
